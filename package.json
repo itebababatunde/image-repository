@@ -1,0 +1,30 @@
+{
+  "name": "image-repository",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "rimraf dist && tsc && nodemon dist/app.js",
+    "lint": "eslint . --ext .ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itebababatunde/image-repository.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itebababatunde/image-repository/issues"
+  },
+  "homepage": "https://github.com/itebababatunde/image-repository#readme",
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "config": "^3.3.6",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.5",
+    "rimraf": "^3.0.2"
+  }
+}
