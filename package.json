@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/itebababatunde/image-repository#readme",
   "devDependencies": {
+    "@types/express": "^4.17.13",
     "typescript": "^4.5.4"
   },
   "dependencies": {
