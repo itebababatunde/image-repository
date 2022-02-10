@@ -5,8 +5,10 @@
   "main": "dist/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "rimraf dist && tsc && nodemon dist/app.js",
-    "lint": "eslint . --ext .ts"
+    "start": "node dist/server.js",
+    "dev": "nodemon",
+    "lint": "eslint . --ext .ts",
+    "build": "rimraf dist && tsc"
   },
   "repository": {
     "type": "git",
@@ -19,13 +21,39 @@
   },
   "homepage": "https://github.com/itebababatunde/image-repository#readme",
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "@types/got": "^9.6.12",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/logger": "^0.0.1",
+    "@types/morgan": "^1.9.3",
+    "@types/node-cron": "^3.0.1",
+    "@types/validator": "^13.7.1",
+    "@types/winston": "^2.4.4",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
   "dependencies": {
+    "axios": "^0.25.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.1",
+    "cloudinary": "^1.28.1",
     "config": "^3.3.6",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "joi": "^17.5.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.5",
-    "rimraf": "^3.0.2"
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "multer-storage-cloudinary": "^4.0.0",
+    "node-cron": "^3.0.0",
+    "rimraf": "^3.0.2",
+    "validator": "^13.7.0"
   }
 }
