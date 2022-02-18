@@ -11,7 +11,8 @@ interface Env {
     CLOUDINARY_API_KEY: string,
     CLOUDINARY_API_SECRET: string,
     IMAGGA_API_KEY: string,
-    IMAGGA_API_SECRET: string
+    IMAGGA_API_SECRET: string,
+    IMAGGA_AUTH: string
   }
   
   export default {
@@ -25,5 +26,6 @@ interface Env {
     CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
     CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
     IMAGGA_API_KEY: process.env.IMAGGA_API_KEY,
-    IMAGGA_API_SECRET: process.env.IMAGGA_API_SECRET
+    IMAGGA_API_SECRET: process.env.IMAGGA_API_SECRET,
+    IMAGGA_AUTH: process.env.IMAGGA_AUTH
   } as Env;

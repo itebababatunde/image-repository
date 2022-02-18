@@ -12,7 +12,17 @@ const imageTagSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
+// imageTagSchema.pre(/^find/, function populateImages(next) {
+ 
 
-const ImageTag = model<ImageTagDocument>("ImageTag", imageTagSchema);
+//   this.populate({
+//     path: 'image',
+//     select: 'imageUrl'
+//   })
+//   next()
+// });
+
+
+const ImageTag: Model<ImageTagDocument> = model<ImageTagDocument>("ImageTag", imageTagSchema);
   
 export default ImageTag;

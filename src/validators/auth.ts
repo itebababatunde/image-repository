@@ -54,5 +54,4 @@ const addImageSchema = Joi.object({
 });
 
 
-
-export { signUpSchema, logInSchema, addImageSchema  };
+export { signUpSchema, logInSchema, addImageSchema };

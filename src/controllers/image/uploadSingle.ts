@@ -8,24 +8,33 @@ import successResponse from '../../middleware/response';
 
 
 const uploadSingle: RequestHandler = async (req, res, next) => {
-
-      
-        if (!(req as any).file) {
-          return next(new AppError('No file uploaded', 400));
-        }
-        const { permission } = req.body
-        const imageUrl = (req as any).file.path 
         
-        const image = await Image.create({
-          imageUrl,
-          createdBy: req.user._id,
-          permission
-         })
+        var image = {}
+        try{
+          if (!(req as any).file) {
+            return next(new AppError('No file uploaded', 400));
+          }
+          const { permission } = req.body
+          const imageUrl = (req as any).file.path 
+  
+          
+          if (imageUrl.endsWith('jpg') || imageUrl.endsWith('png') ){
+              image = await Image.create({
+              imageUrl,
+              createdBy: req.user._id,
+              permission
+             })
+          }else{
+            next(new AppError('Unable to upload, bad file extention', 400))
+          }
+          return successResponse(res, 200, 'Image successfully uploaded', {
+            image
+          });
 
-      return successResponse(res, 200, 'Sucessful', {
-      message: `Image successfully uploaded`, 
-      image     
-  });
+        }catch(err){
+          next(err)
+        }
+
 };
 
 

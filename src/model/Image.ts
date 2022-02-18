@@ -3,7 +3,9 @@ import mongoose, { Document, Model, model, PopulatedDoc, Schema } from 'mongoose
 
 export interface ImageDocument extends Document {
   imageUrl: string,
-  createdBy: PopulatedDoc<'User'>  
+  createdBy: PopulatedDoc<'User'>,
+  permission: string,
+  tagged: boolean
 }
 
 const imageSchema = new mongoose.Schema({
@@ -14,7 +16,6 @@ const imageSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-
-const Image = model<ImageDocument>("Image", imageSchema);
+const Image: Model<ImageDocument> = model<ImageDocument>("Image", imageSchema);
   
 export default Image;

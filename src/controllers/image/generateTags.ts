@@ -6,7 +6,9 @@ import AppError from '../../errors/AppError';
 import User, { UserDocument } from '../../model/User';
 import Image, { ImageDocument } from '../../model/Image';
 import ImageTag, { ImageTagDocument } from '../../model/ImageTag';
+import env from '../../env.config'
 
+const { IMAGGA_AUTH }: { IMAGGA_AUTH: string } = env;
 import successResponse from '../../middleware/response';
 import { ObjectId } from 'mongoose';
 
@@ -19,13 +21,13 @@ const cronJob = async ()=> {
         untagged.forEach(async function(obj){
             const imageUrl: string = obj['imageUrl']
             const imageID: ObjectId = obj['_id']
-
             const url = 'https://api.imagga.com/v2/tags?image_url=' + encodeURIComponent(imageUrl);
-
+            
             try{
+
                 const tags:any = await axios.get(url, {
                     headers: {
-                    Authorization: `Basic YWNjX2RhMGRmODZjNzI1ODVmYTo3NzEwMDNkYTA0NzdkZTA0Nzg5YThjMjcxZjQ0MTAwNg==`
+                    Authorization: IMAGGA_AUTH
                     }
                 }); 
                 const allTags: any[] = tags.data.result.tags
@@ -43,11 +45,15 @@ const cronJob = async ()=> {
                         })
                     })
                     await Image.findByIdAndUpdate(imageID, {tagged:true}, {upsert: true})
-                }else{
                 }
+
+             
                 
-            }catch(err){
-                console.log(err)
+            }catch(err:any){
+                if(err.response)
+                    console.log(err.response.data)
+                else
+                    console.log(err)
             }
         }) 
 }) 
