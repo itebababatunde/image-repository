@@ -61,6 +61,7 @@
     "node-cron": "^3.0.0",
     "rimraf": "^3.0.2",
     "supertest": "^6.2.2",
-    "validator": "^13.7.0"
+    "validator": "^13.7.0",
+    "winston": "^3.7.2"
   }
 }
