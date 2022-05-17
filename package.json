@@ -8,7 +8,8 @@
     "start": "node dist/server.js",
     "dev": "nodemon",
     "lint": "eslint . --ext .ts",
-    "build": "rimraf dist && tsc"
+    "build": "rimraf dist && tsc",
+    "postinstall": "tsc"
   },
   "repository": {
     "type": "git",
